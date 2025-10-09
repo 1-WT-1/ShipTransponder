@@ -1,0 +1,9 @@
+locale|en
+
+SHIP_TRANSPONDER_NAME|Ship Transponder
+SHIP_TRANSPONDER_DESCRIPTION|Displays the class name of ships in the HUD.
+SHIP_TRANSPONDER_BRIEF|Adds ship class names to the OMS.
+SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_NAME|Display Preference
+SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC|Choose whether to prioritize displaying the ship's name or its model. Note: Some ships in the game may have incorrect model data, which can cause a mismatch.
+SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME|Show Untranslated Keys
+SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC|WARNING: This may display debug names. If enabled, shows the raw translation key (e.g., SHIP_INTERNAL_NAME) instead of 'UNKNOWN' when a proper translation is not found.

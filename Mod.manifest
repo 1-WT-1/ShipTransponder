@@ -1,0 +1,51 @@
+[mod_information]
+id="wt.ShipTransponder"
+name="SHIP_TRANSPONDER_NAME"
+description="SHIP_TRANSPONDER_DESCRIPTION"
+brief="SHIP_TRANSPONDER_BRIEF"
+author="WT"
+credits=[""]
+
+[version]
+version_major=0
+version_minor=1
+version_bugfix=4
+
+[tags]
+
+TAG_ALLOW_ACHIEVEMENTS={"type":"bool","value":true}
+TAG_QOL={"type":"bool","value":true}
+
+[languages]
+
+en="100%"
+uk_UA="0%"
+
+[links]
+
+HEVLIB_GITHUB={"URL":"https://github.com/1-WT-1/ShipTransponder"}
+HEVLIB_DISCORD={"URL":"   "}
+
+
+[configs]
+SHIPTRANSPONDER_CONFIG_OPTIONS={
+    "display_preference":{
+        "name":"SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_NAME",
+        "description":"SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC",
+        "type":"option",
+        "store_method":"string",
+        "default":"Ship_Name",
+        "options":["Ship_Name","Ship_Model"]
+    },
+    "show_all_names":{
+        "name":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME",
+        "description":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC",
+        "type":"bool",
+        "default":false
+    }
+}
+
+[manifest_definitions]
+manifest_version=2.2
+dependancy_mod_ids=["hev.LIBRARY"]
+
