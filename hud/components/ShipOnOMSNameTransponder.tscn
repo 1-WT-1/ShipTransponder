@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ShipTransponder/hud/components/ShipOnOMSClassName.tscn" type="PackedScene" id=4]
+[ext_resource path="res://hud/components/ShipOnOMSNameTransponder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ShipTransponder/hud/components/ShipOnOMSNameTransponder.gd" type="Script" id=6]
+
+[node name="ShipOnOMSNameTransponder" instance=ExtResource( 5 )]
+script = ExtResource( 6 )
+
+[node name="ShipClassName" parent="." index="2" instance=ExtResource( 4 )]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 47.0
+text = "??????"

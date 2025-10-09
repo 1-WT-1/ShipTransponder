@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://hud/TNTRL-theme-inventory.tres" type="Theme" id=1]
+[ext_resource path="res://hud/ShipList.gd" type="Script" id=2]
+[ext_resource path="res://ShipTransponder/hud/ShipList.gd" type="Script" id=3]
+
+[ext_resource path="res://hud/components/ShipList.tscn" type="PackedScene" id=4]
+
+[node name="ShipList" instance=ExtResource( 4 )]
+script = ExtResource( 3 )
