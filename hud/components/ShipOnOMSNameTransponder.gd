@@ -38,9 +38,11 @@ func setData(shipName, transponder):
 		elif shipObject.has_method("get") and shipObject.get("hailable") != null:
 			is_hailable = shipObject.get("hailable")
 
+		var show_non_hailable = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "show_non_hailable")
+
 		if transponder == "UIO":
 			ship_display_name = "UNKNOWN"
-		elif is_hailable or is_hybrid_ship:
+		elif is_hailable or is_hybrid_ship or show_non_hailable:
 			var potential_name = ""
 
 			var display_preference = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "display_preference")
@@ -49,21 +51,17 @@ func setData(shipName, transponder):
 			if is_hybrid_ship:
 				var random_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
 				var random_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
-
 				potential_name = random_name_key if display_preference == "Ship_Name" else random_model
-
 			# ALL OTHERS
 			else:
 				var primary_name = ""
 				var fallback_name = ""
-
 				if display_preference == "Ship_Name":
 					primary_name = get_ship_name_property(shipObject)
 					fallback_name = get_model_property(shipObject)
 				else: # Ship_Model
 					primary_name = get_model_property(shipObject)
 					fallback_name = get_ship_name_property(shipObject)
-
 				potential_name = primary_name if primary_name != "" else fallback_name
 
 			# DISPLAY

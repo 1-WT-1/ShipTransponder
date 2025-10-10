@@ -10,6 +10,7 @@ credits=[""]
 version_major=0
 version_minor=1
 version_bugfix=4
+version_bugfix=5
 
 [tags]
 
@@ -37,6 +38,12 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
         "default":"Ship_Name",
         "options":["Ship_Name","Ship_Model"]
     },
+        "show_non_hailable":{
+        "name":"SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_NAME",
+        "description":"SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_DESC",
+        "type":"bool",
+        "default":false
+    }
     "show_all_names":{
         "name":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME",
         "description":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC",
