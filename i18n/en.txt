@@ -4,12 +4,18 @@ SHIP_TRANSPONDER_NAME|Ship Transponder
 SHIP_TRANSPONDER_DESCRIPTION|Displays the class name of ships in the HUD.
 SHIP_TRANSPONDER_BRIEF|Adds ship class names to the OMS.
 
-
+SHIPTRANSPONDER_CONFIG_OPTIONS|Config
 SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_NAME|Display Preference
-SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC|Choose whether to prioritize displaying the ship's name or its model. The mod will fall back to the other option if your preferred choice is not available for a specific ship.
+SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC|Choose whether to prioritize displaying the ship's name or its model. \nThe mod will fall back to the other option if your preferred choice is not available for a specific ship.
 
 SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_NAME|Show Non-Hailable
 SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_DESC|If enabled, the mod will attempt to display names for non-hailable targets, such as derelicts.
 
 SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME|Show Untranslated Keys
-SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC|WARNING: This may display debug names. If enabled, shows the raw translation key (e.g., SHIP_INTERNAL_NAME) instead of 'UNKNOWN' when a proper translation is not found.
+SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC|WARNING: This may display debug names. \nIf enabled, shows the raw translation key (e.g., SHIP_INTERNAL_NAME) instead of 'UNKNOWN' when a proper translation is not found.
+
+SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_NAME|Dynamic Hybrid Naming
+SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_DESC|If enabled, the Hybrid ship's mimicked identity will change frequently. \nBy default, it is fixed for each encounter.
+
+
+SHIP_TSUKUYOMI_NAME|Tsukuyomi-Class Frigate

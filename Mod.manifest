@@ -1,6 +1,6 @@
 [mod_information]
 id="wt.ShipTransponder"
-name="SHIP_TRANSPONDER_NAME"
+name="Ship Transponder"
 description="SHIP_TRANSPONDER_DESCRIPTION"
 brief="SHIP_TRANSPONDER_BRIEF"
 author="WT"
@@ -8,9 +8,8 @@ credits=[""]
 
 [version]
 version_major=0
-version_minor=1
-version_bugfix=4
-version_bugfix=5
+version_minor=2
+version_bugfix=0
 
 [tags]
 
@@ -35,18 +34,24 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
         "description":"SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC",
         "type":"option",
         "store_method":"string",
-        "default":"Ship_Name",
-        "options":["Ship_Name","Ship_Model"]
+        "default":"Name",
+        "options":["Name","Model"]
     },
         "show_non_hailable":{
         "name":"SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_NAME",
         "description":"SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_DESC",
         "type":"bool",
         "default":false
-    }
+    },
     "show_all_names":{
         "name":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME",
         "description":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC",
+        "type":"bool",
+        "default":false
+    },
+    "dynamic_hybrid_naming":{
+        "name":"SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_NAME",
+        "description":"SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_DESC",
         "type":"bool",
         "default":false
     }
