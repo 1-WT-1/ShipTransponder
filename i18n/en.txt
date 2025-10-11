@@ -19,3 +19,4 @@ SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_DESC|If enabled, the Hybrid ship's mimick
 
 
 SHIP_TSUKUYOMI_NAME|Tsukuyomi-Class Frigate
+STATION_HABITAT_NAME|Obonto Habitat
