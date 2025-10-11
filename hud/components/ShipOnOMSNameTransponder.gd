@@ -79,12 +79,16 @@ func setData(shipName, transponder):
 			# DISPLAY
 			var show_all_names = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "show_all_names")
 			if potential_name != "":
-				if potential_name.begins_with("SHIP_"):
+				var is_translation_key = (potential_name == potential_name.to_upper() and "_" in potential_name)
+
+				if is_translation_key:
 					var translated_name = tr(potential_name)
-					if translated_name == potential_name and not show_all_names:
-						ship_display_name = "UNKNOWN"
-					else:
+					if translated_name != potential_name:
 						ship_display_name = translated_name
+					elif show_all_names:
+						ship_display_name = potential_name
+					else:
+						ship_display_name = "UNKNOWN"
 				else:
 					ship_display_name = potential_name
 

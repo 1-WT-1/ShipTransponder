@@ -4,7 +4,7 @@ const MOD_PRIORITY = 0
 const MOD_NAME = "ShipTransponder"
 const MOD_VERSION_MAJOR = 0
 const MOD_VERSION_MINOR = 2
-const MOD_VERSION_BUGFIX = 0
+const MOD_VERSION_BUGFIX = 1
 const MOD_VERSION_METADATA = ""
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
 var _savedObjects := []
@@ -18,8 +18,8 @@ func _init(modLoader = ModLoader):
 	#updateTL("i18n/ua.txt", "|")
 	l("Initialized")
 
-func _ready():
-	updateTL("i18n/en.txt", "|")
+#func _ready():
+#	updateTL("i18n/en.txt", "|")
 
 func updateTL(path:String, delim:String = ","):
 	path = str(modPath + path)
