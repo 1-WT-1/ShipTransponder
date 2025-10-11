@@ -35,49 +35,51 @@ func setData(shipName, transponder):
 			is_hailable = shipObject.get("hailable")
 
 		var show_non_hailable = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "show_non_hailable")
+		var ship_name_prop = get_ship_name_property(shipObject)
+		var ship_model_prop = get_model_property(shipObject)
 
 		# CONDITION
-		if transponder != "UIO" and (is_hailable or show_non_hailable or shipObject.name in ["HYB-base", "Tsukuyomi", "Habitat"]):
+		if transponder != "UIO" and (is_hailable or show_non_hailable or shipObject.name in ["HYB-base", "Tsukuyomi"] or ship_name_prop == "STATION_HABITAT"):
 			var potential_name = ""
 			var display_preference = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "display_preference")
 
-			match shipObject.name:
-				"HYB-base":
-					var hybrid_name_key = ""
-					var hybrid_model = ""
-					var dynamic_hybrid_naming = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "dynamic_hybrid_naming")
+			if ship_name_prop == "STATION_HABITAT":
+				potential_name = "STATION_HABITAT_NAME" if display_preference == "Name" else "HABITAT"
+			else:
+				match shipObject.name:
+					"HYB-base":
+						var hybrid_name_key = ""
+						var hybrid_model = ""
+						var dynamic_hybrid_naming = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "dynamic_hybrid_naming")
 
-					if not dynamic_hybrid_naming:
-						if shipObject.has_meta("hybrid_name_key"):
-							hybrid_name_key = shipObject.get_meta("hybrid_name_key")
-							hybrid_model = shipObject.get_meta("hybrid_model")
+						if not dynamic_hybrid_naming:
+							if shipObject.has_meta("hybrid_name_key"):
+								hybrid_name_key = shipObject.get_meta("hybrid_name_key")
+								hybrid_model = shipObject.get_meta("hybrid_model")
+							else:
+								hybrid_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
+								hybrid_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
+								shipObject.set_meta("hybrid_name_key", hybrid_name_key)
+								shipObject.set_meta("hybrid_model", hybrid_model)
 						else:
 							hybrid_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
 							hybrid_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
-							shipObject.set_meta("hybrid_name_key", hybrid_name_key)
-							shipObject.set_meta("hybrid_model", hybrid_model)
-					else:
-						hybrid_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
-						hybrid_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
+							
+						potential_name = hybrid_name_key if display_preference == "Name" else hybrid_model
 
-					potential_name = hybrid_name_key if display_preference == "Name" else hybrid_model
-
-				"Tsukuyomi":
-					potential_name = "SHIP_TSUKUYOMI_NAME" if display_preference == "Name" else "TSUKUYOMI"
-				
-				"Habitat":
-					potential_name = "STATION_HABITAT_NAME" if display_preference == "Name" else "HABITAT"
-
-				_: # Default case for all other ships
-					var primary_name = ""
-					var fallback_name = ""
-					if display_preference == "Name":
-						primary_name = get_ship_name_property(shipObject)
-						fallback_name = get_model_property(shipObject)
-					else: # Model
-						primary_name = get_model_property(shipObject)
-						fallback_name = get_ship_name_property(shipObject)
-					potential_name = primary_name if primary_name != "" else fallback_name
+					"Tsukuyomi":
+						potential_name = "SHIP_TSUKUYOMI_NAME" if display_preference == "Name" else "TSUKUYOMI"
+						
+					_: # Default case for all other ships
+						var primary_name = ""
+						var fallback_name = ""
+						if display_preference == "Name":
+							primary_name = ship_name_prop
+							fallback_name = ship_model_prop
+						else: # Model
+							primary_name = ship_model_prop
+							fallback_name = ship_name_prop
+						potential_name = primary_name if primary_name != "" else fallback_name
 
 			# DISPLAY
 			var show_all_names = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "show_all_names")

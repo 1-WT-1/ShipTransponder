@@ -9,7 +9,7 @@ credits=[""]
 [version]
 version_major=0
 version_minor=2
-version_bugfix=2
+version_bugfix=3
 
 [tags]
 
@@ -24,7 +24,7 @@ uk_UA="0%"
 [links]
 
 HEVLIB_GITHUB={"URL":"https://github.com/1-WT-1/ShipTransponder"}
-HEVLIB_DISCORD={"URL":"   "}
+HEVLIB_DISCORD={"URL":"https://discord.com/channels/426287934870781952/1426515660845875292"}
 
 
 [configs]
