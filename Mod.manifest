@@ -9,7 +9,7 @@ credits=[""]
 [version]
 version_major=0
 version_minor=2
-version_bugfix=3
+version_bugfix=4
 
 [tags]
 
@@ -60,4 +60,5 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
 [manifest_definitions]
 manifest_version=2.2
 dependancy_mod_ids=["hev.LIBRARY"]
+manifest_url="https://raw.githubusercontent.com/1-WT-1/ShipTransponder/refs/heads/main/Mod.manifest
 

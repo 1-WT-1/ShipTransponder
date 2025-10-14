@@ -12,11 +12,13 @@ SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_NAME|Show Non-Hailable
 SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_DESC|If enabled, the mod will attempt to display names for non-hailable targets, such as derelicts.
 
 SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME|Show Untranslated Keys
-SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC|WARNING: This may display debug names. \nIf enabled, shows the raw translation key (e.g., SHIP_INTERNAL_NAME) instead of 'UNKNOWN' when a proper translation is not found.
+SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC|WARNING: This may display debug names. \nIf enabled, shows the raw translation key (e.g., SHIP_INTERNAL_NAME) instead of UNKNOWN when a proper translation is not found.
 
 SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_NAME|Dynamic Hybrid Naming
 SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_DESC|If enabled, the Hybrid ship's mimicked identity will change frequently. \nBy default, it is fixed for each encounter.
 
 
-SHIP_TSUKUYOMI_NAME|Tsukuyomi-Class Frigate
-STATION_HABITAT_NAME|Obonto Habitat
+SHIP_TRANSPONDER_TSUKUYOMI_NAME|Tsukuyomi-Class Frigate
+SHIP_TRANSPONDER_HABITAT_NAME|Obonto Habitat
+SHIP_TRANSPONDER_PHAGE_NAME|Phage Station
+SHIP_TRANSPONDER_ATLAS_NAME|ATLAS Edge Runner
