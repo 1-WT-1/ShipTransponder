@@ -60,5 +60,4 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
 [manifest_definitions]
 manifest_version=2.2
 dependancy_mod_ids=["hev.LIBRARY"]
-manifest_url="https://raw.githubusercontent.com/1-WT-1/ShipTransponder/refs/heads/main/Mod.manifest
-
+manifest_url="https://raw.githubusercontent.com/1-WT-1/ShipTransponder/refs/heads/main/Mod.manifest"
