@@ -1,0 +1,20 @@
+;MOD_ID|wt.ShipTransponder
+;MOD_NAME|Ship Transponder
+;MOD_ICON|https://raw.githubusercontent.com/1-WT-1/ShipTransponder/refs/heads/main/icon.png
+;MOD_ZIP_NAME|ShipTransponder.zip
+
+Adds the ship's variant name or model to the OMS target list.
+
+[u][b]Configuration:[/b][/u]
+
+[b]Display Preference[/b]
+[indent]* Sets whether to show the [i]Name[/i] or [i]Model[/i] first. The mod automatically falls back to the other option if the preferred one is not available.[/indent]
+
+[b]Show Non-Hailable[/b]
+[indent]* If enabled, the mod will attempt to display names for non-hailable targets, such as derelicts.[/indent]
+
+[b]Show Untranslated Keys[/b]
+[indent]* When enabled, displays the raw translation key instead of 'UNKNOWN' if translation is not found.[/indent]
+
+[b]Dynamic Hybrid Naming[/b]
+[indent]* If enabled, the Hybrid ship's identity will change frequently.[/indent]
