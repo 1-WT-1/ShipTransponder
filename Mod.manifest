@@ -8,8 +8,8 @@ credits=[""]
 
 [version]
 version_major=0
-version_minor=2
-version_bugfix=6
+version_minor=3
+version_bugfix=0
 
 [tags]
 

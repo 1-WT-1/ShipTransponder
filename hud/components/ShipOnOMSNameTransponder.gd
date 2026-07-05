@@ -39,7 +39,7 @@ func setData(shipName, transponder):
 			var ship_model_prop = get_model_property(shipObject)
 
 			# CONDITION
-			if transponder != "UIO" and (is_hailable or show_non_hailable or shipObject.name in ["HYB-base", "Tsukuyomi", "ATLAS"] or ship_name_prop in ["STATION_HABITAT", "STATION_PHAGE"]):
+			if transponder != "UIO" and (is_hailable or show_non_hailable or shipObject.name in ["HYB-base", "Tsukuyomi", "ATLAS", "MAD-CERF"] or ship_name_prop in ["STATION_HABITAT", "STATION_PHAGE"]):
 				var potential_name = ""
 				var display_preference = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "display_preference")
 
@@ -75,6 +75,9 @@ func setData(shipName, transponder):
 
 						"ATLAS":
 							potential_name = "SHIP_TRANSPONDER_ATLAS_NAME" if display_preference == "Name" else "ATLAS"
+
+						"MAD-CERF":
+							potential_name = "SHIP_TRANSPONDER_CERF_NAME" if display_preference == "Name" else "CERF"
 
 						_: # Default case for all other ships
 							var primary_name = ""
