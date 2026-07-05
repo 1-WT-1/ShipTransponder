@@ -4,7 +4,7 @@ var ship_class_name_label
 var ship
 
 # Load the HevLib ConfigDriver
-var ConfigDriver = load("res://HevLib/pointers/ConfigDriver.gd")
+var ConfigDriver = ModLoader._savedObjects[0].ConfigDriver
 
 
 const HYBRID_SHIP_NAMES = ["SHIP_TRTL", "SHIP_PROSPECTOR", "SHIP_COTHON", "SHIP_EIME", "SHIP_TRTL"]
@@ -12,6 +12,9 @@ const HYBRID_SHIP_MODELS = ["TRTL", "PROSPECTOR", "COTHON", "EIME", "TRTL"]
 
 
 func _ready():
+	# The ship will always be the player vessel, so we can just set it
+	# here instead of passing it via the overriden ShipList.redraw() method
+	ship = CurrentGame.getPlayerShip()
 	ship_class_name_label = get_node("ShipClassName")
 
 func setData(shipName, transponder):
