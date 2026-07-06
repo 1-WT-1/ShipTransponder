@@ -1,63 +1,71 @@
 [mod_information]
-id="wt.ShipTransponder"
+
 name="Ship Transponder"
+id="wt.ShipTransponder"
 description="SHIP_TRANSPONDER_DESCRIPTION"
 brief="SHIP_TRANSPONDER_BRIEF"
 author="WT"
-credits=[""]
+credits=PoolStringArray( "  --- Contributors ---  ", "__hev - code optimization and cleanup" )
 
 [version]
+
 version_major=0
-version_minor=3
+version_minor=4
 version_bugfix=0
 
 [tags]
 
-TAG_ALLOW_ACHIEVEMENTS={"type":"bool","value":true}
-TAG_QOL={"type":"bool","value":true}
+TAG_ALLOW_ACHIEVEMENTS={
+"type": "bool",
+"value": true
+}
+TAG_QOL={
+"type": "bool",
+"value": true
+}
+
+[links]
+
+HEVLIB_GITHUB={
+"URL": "https://github.com/1-WT-1/ShipTransponder"
+}
+HEVLIB_DISCORD={
+"URL": "https://discord.com/channels/426287934870781952/1426515660845875292"
+}
+
+[configs]
+
+SHIPTRANSPONDER_CONFIG_OPTIONS={
+"display_preference": {
+"type": ""
+},
+"dynamic_hybrid_naming": {
+"default": false,
+"description": "SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_DESC",
+"name": "SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_NAME",
+"type": ""
+},
+"show_all_names": {
+"default": false,
+"description": "SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC",
+"name": "SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME",
+"type": ""
+},
+"show_non_hailable": {
+"default": false,
+"description": "SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_DESC",
+"name": "SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_NAME",
+"type": ""
+}
+}
 
 [languages]
 
 en="100%"
 uk_UA="0%"
 
-[links]
-
-HEVLIB_GITHUB={"URL":"https://github.com/1-WT-1/ShipTransponder"}
-HEVLIB_DISCORD={"URL":"https://discord.com/channels/426287934870781952/1426515660845875292"}
-
-
-[configs]
-SHIPTRANSPONDER_CONFIG_OPTIONS={
-    "display_preference":{
-        "name":"SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_NAME",
-        "description":"SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC",
-        "type":"option",
-        "store_method":"string",
-        "default":"Name",
-        "options":["Name","Model"]
-    },
-        "show_non_hailable":{
-        "name":"SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_NAME",
-        "description":"SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_DESC",
-        "type":"bool",
-        "default":false
-    },
-    "show_all_names":{
-        "name":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME",
-        "description":"SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC",
-        "type":"bool",
-        "default":false
-    },
-    "dynamic_hybrid_naming":{
-        "name":"SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_NAME",
-        "description":"SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_DESC",
-        "type":"bool",
-        "default":false
-    }
-}
-
 [manifest_definitions]
+
 manifest_version=2.2
-dependancy_mod_ids=["hev.LIBRARY"]
+dependancy_mod_ids=PoolStringArray( "hev.LIBRARY" )
 manifest_url="https://raw.githubusercontent.com/1-WT-1/ShipTransponder/refs/heads/main/Mod.manifest"
