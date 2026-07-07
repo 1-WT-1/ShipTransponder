@@ -37,12 +37,12 @@ HEVLIB_DISCORD={
 
 SHIPTRANSPONDER_CONFIG_OPTIONS={
 "display_preference": {
-"name":"SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_NAME",
-"description":"SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC",
-"type":"option",
-"store_method":"string",
-"default":"Name",
-"options":["Name","Model"]
+"default": "Name",
+"description": "SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC",
+"name": "SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_NAME",
+"options": [ "Name", "Model" ],
+"store_method": "string",
+"type": "optionbutton"
 },
 "dynamic_hybrid_naming": {
 "default": false,
