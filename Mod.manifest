@@ -11,7 +11,7 @@ credits=PoolStringArray( "  --- Contributors ---  ", "__hev - code optimization 
 
 version_major=0
 version_minor=4
-version_bugfix=0
+version_bugfix=1
 
 [tags]
 
@@ -67,11 +67,6 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
 "type": "bool"
 }
 }
-
-[languages]
-
-en="100%"
-uk_UA="0%"
 
 [manifest_definitions]
 
