@@ -39,6 +39,7 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
 "display_preference": {
 "default": "Name",
 "description": "SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_DESC",
+"display_order_position": 0,
 "name": "SHIP_TRANSPONDER_CONFIG_DISPLAY_PREFERENCE_NAME",
 "options": [ "Name", "Model" ],
 "store_method": "string",
@@ -47,18 +48,21 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
 "dynamic_hybrid_naming": {
 "default": false,
 "description": "SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_DESC",
+"display_order_position": 3,
 "name": "SHIP_TRANSPONDER_CONFIG_DYNAMIC_HYBRID_NAME",
 "type": "bool"
 },
 "show_all_names": {
 "default": false,
 "description": "SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_DESC",
+"display_order_position": 2,
 "name": "SHIP_TRANSPONDER_CONFIG_SHOW_ALL_NAMES_NAME",
 "type": "bool"
 },
 "show_non_hailable": {
 "default": false,
 "description": "SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_DESC",
+"display_order_position": 1,
 "name": "SHIP_TRANSPONDER_CONFIG_SHOW_NON_HAILABLE_NAME",
 "type": "bool"
 }
