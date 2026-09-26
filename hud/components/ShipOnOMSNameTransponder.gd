@@ -4,7 +4,7 @@ var ship_class_name_label
 var ship
 
 # Load the HevLib ConfigDriver
-var ConfigDriver = ModLoader._savedObjects[0].ConfigDriver
+var ConfigDriver:HevLibPointers._ConfigDriver = ModLoader._savedObjects[0].ConfigDriver
 
 
 const HYBRID_SHIP_NAMES = ["SHIP_TRTL", "SHIP_PROSPECTOR", "SHIP_COTHON", "SHIP_EIME", "SHIP_TRTL"]
