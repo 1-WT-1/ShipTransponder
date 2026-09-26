@@ -3,6 +3,8 @@
 ;MOD_ICON|https://raw.githubusercontent.com/1-WT-1/ShipTransponder/refs/heads/main/icon.png
 ;MOD_ZIP_NAME|ShipTransponder.zip
 
+[center][b]Ship Transponder[/b][/center]
+
 Adds the ship's variant name or model to the OMS target list.
 
 [u][b]Configuration:[/b][/u]

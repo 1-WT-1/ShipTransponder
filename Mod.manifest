@@ -11,7 +11,7 @@ credits=PoolStringArray( "  --- Contributors ---  ", "__hev - code optimization 
 
 version_major=0
 version_minor=4
-version_bugfix=1
+version_bugfix=2
 
 [tags]
 
@@ -71,5 +71,9 @@ SHIPTRANSPONDER_CONFIG_OPTIONS={
 [manifest_definitions]
 
 manifest_version=2.2
-dependancy_mod_ids=PoolStringArray( "hev.LIBRARY" )
+dependancy_mod_ids=[ {
+"blocking": true,
+"mod_id": "hev.LIBRARY"
+} ]
 manifest_url="https://raw.githubusercontent.com/1-WT-1/ShipTransponder/refs/heads/main/Mod.manifest"
+changelog_path="changelog.txt"
