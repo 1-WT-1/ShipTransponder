@@ -10,6 +10,14 @@ var ConfigDriver:HevLibPointers._ConfigDriver = ModLoader._savedObjects[0].Confi
 const HYBRID_SHIP_NAMES = ["SHIP_TRTL", "SHIP_PROSPECTOR", "SHIP_COTHON", "SHIP_EIME", "SHIP_TRTL"]
 const HYBRID_SHIP_MODELS = ["TRTL", "PROSPECTOR", "COTHON", "EIME", "TRTL"]
 
+const SHIP_OVERRIDES = [
+	["MAD-CERF", "SHIP_TRANSPONDER_CERF_NAME", "CERF"],
+	["Tsukuyomi", "SHIP_TRANSPONDER_TSUKUYOMI_NAME", "TSUKUYOMI"],
+	["ATLAS", "SHIP_TRANSPONDER_ATLAS_NAME", "ATLAS"],
+	["STATION_HABITAT", "SHIP_TRANSPONDER_HABITAT_NAME", "HABITAT"],
+	["STATION_PHAGE", "SHIP_TRANSPONDER_PHAGE_NAME", "PHAGE"],
+]
+
 
 func _ready():
 	# The ship will always be the player vessel, so we can just set it
@@ -19,6 +27,11 @@ func _ready():
 
 func setData(shipName, transponder):
 	.setData(shipName, transponder)
+	if not transponder: #UIO
+		if ship_class_name_label:
+			ship_class_name_label.set_text("UNKNOWN")
+		return
+
 	var shipObject = null
 	if ship:
 		for key in ship.identifiedShips:
@@ -40,58 +53,47 @@ func setData(shipName, transponder):
 			var show_non_hailable = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "show_non_hailable")
 			var ship_name_prop = get_ship_name_property(shipObject)
 			var ship_model_prop = get_model_property(shipObject)
+			var is_hybrid = "HYB-base" in shipObject.name
+			var ship_override = get_ship_type_override(shipObject, ship_name_prop)
 
 			# CONDITION
-			if transponder != "UIO" and (is_hailable or show_non_hailable or shipObject.name in ["HYB-base", "Tsukuyomi", "ATLAS", "MAD-CERF"] or ship_name_prop in ["STATION_HABITAT", "STATION_PHAGE"]):
+			if is_hailable or show_non_hailable or is_hybrid or ship_override != null:
 				var potential_name = ""
 				var display_preference = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "display_preference")
 
-				if ship_name_prop == "STATION_HABITAT":
-					potential_name = "SHIP_TRANSPONDER_HABITAT_NAME" if display_preference == "Name" else "HABITAT"
-				else:
-					match shipObject.name:
-						"HYB-base":
-							var hybrid_name_key = ""
-							var hybrid_model = ""
-							var dynamic_hybrid_naming = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "dynamic_hybrid_naming")
+				if is_hybrid:
+					var hybrid_name_key = ""
+					var hybrid_model = ""
+					var dynamic_hybrid_naming = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "dynamic_hybrid_naming")
 
-							if not dynamic_hybrid_naming:
-								if shipObject.has_meta("hybrid_name_key"):
-									hybrid_name_key = shipObject.get_meta("hybrid_name_key")
-									hybrid_model = shipObject.get_meta("hybrid_model")
-								else:
-									hybrid_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
-									hybrid_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
-									shipObject.set_meta("hybrid_name_key", hybrid_name_key)
-									shipObject.set_meta("hybrid_model", hybrid_model)
-							else:
-								hybrid_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
-								hybrid_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
+					if not dynamic_hybrid_naming:
+						if shipObject.has_meta("hybrid_name_key"):
+							hybrid_name_key = shipObject.get_meta("hybrid_name_key")
+							hybrid_model = shipObject.get_meta("hybrid_model")
+						else:
+							hybrid_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
+							hybrid_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
+							shipObject.set_meta("hybrid_name_key", hybrid_name_key)
+							shipObject.set_meta("hybrid_model", hybrid_model)
+					else:
+						hybrid_name_key = HYBRID_SHIP_NAMES[randi() % HYBRID_SHIP_NAMES.size()]
+						hybrid_model = HYBRID_SHIP_MODELS[randi() % HYBRID_SHIP_MODELS.size()]
 
-							potential_name = hybrid_name_key if display_preference == "Name" else hybrid_model
+					potential_name = hybrid_name_key if display_preference == "Name" else hybrid_model
 
-						"Tsukuyomi":
-							potential_name = "SHIP_TRANSPONDER_TSUKUYOMI_NAME" if display_preference == "Name" else "TSUKUYOMI"
+				elif ship_override != null:
+					potential_name = ship_override[1] if display_preference == "Name" else ship_override[2]
 
-						"STATION_PHAGE":
-							potential_name = "SHIP_TRANSPONDER_PHAGE_NAME" if display_preference == "Name" else "PHAGE"
-
-						"ATLAS":
-							potential_name = "SHIP_TRANSPONDER_ATLAS_NAME" if display_preference == "Name" else "ATLAS"
-
-						"MAD-CERF":
-							potential_name = "SHIP_TRANSPONDER_CERF_NAME" if display_preference == "Name" else "CERF"
-
-						_: # Default case for all other ships
-							var primary_name = ""
-							var fallback_name = ""
-							if display_preference == "Name":
-								primary_name = ship_name_prop
-								fallback_name = ship_model_prop
-							else: # Model
-								primary_name = ship_model_prop
-								fallback_name = ship_name_prop
-							potential_name = primary_name if primary_name != "" else fallback_name
+				else: # Default case for all other ships
+					var primary_name = ""
+					var fallback_name = ""
+					if display_preference == "Name":
+						primary_name = ship_name_prop
+						fallback_name = ship_model_prop
+					else: # Model
+						primary_name = ship_model_prop
+						fallback_name = ship_name_prop
+					potential_name = primary_name if primary_name != "" else fallback_name
 
 				# DISPLAY
 				var show_all_names = ConfigDriver.__get_value("ShipTransponder", "SHIPTRANSPONDER_CONFIG_OPTIONS", "show_all_names")
@@ -131,3 +133,11 @@ func get_model_property(obj):
 	elif obj.has_method("get") and obj.get("model") != null:
 		return obj.get("model")
 	return ""
+
+# Helper function to get ship type override
+func get_ship_type_override(obj, ship_name_prop):
+	for override in SHIP_OVERRIDES:
+		var key = override[0]
+		if key in obj.name or key == ship_name_prop:
+			return override
+	return null

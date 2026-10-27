@@ -1,3 +1,8 @@
+[0.4.3]
+1="* Fixed ships without transponders displaying class names instead of UNKNOWN"
+2="* Fixed ships using name overrides being misidentified when multiple instances spawn"
+3="* Reworked ship type override detection to use a lookup table instead of branching match statements"
+
 [0.4.2]
 
 1="* _hev"
